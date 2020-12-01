@@ -9,19 +9,22 @@ function VideoScreen() {
       src: image,
       title: "654321.mp4",
       description: "5 hours ago",
-      size: "3 MB"
+      size: "3 MB",
+      to:"/video"
     },
     {
       src: image,
       title: "123456.mp4",
       description: "10 hours ago",
-      size: "10 MB"
+      size: "10 MB",
+      to:"/video"
     },
     {
       src: image,
       title: "4145.mp4",
       description: "7 hours ago",
-      size: "4 MB"
+      size: "4 MB",
+      to:"/video"
     },
   ]
 
@@ -174,7 +177,7 @@ return (
         {/* Recent */}
         <CategoryTextRow title="Recent Videos" rightTxt="View All" />
         <div style={{ display: 'flex', flexDirection: 'row' }} className="smVideos">
-          {recentVideos.map((i) => <ItemCard containerClassName="itemCardSm" containerStyle={{width:100+"%"}} src={i.src} title={i.title} description={i.description} size={i.size} />)}
+          {recentVideos.map((i) => <ItemCard containerClassName="itemCardSm" containerStyle={{width:100+"%"}} src={i.src} title={i.title} description={i.description} size={i.size} to={i.to} />)}
         </div>
 
         {/* Cases */}
@@ -194,7 +197,7 @@ return (
           <i style={style.tableLastIcon} className="fa fa-arrow-down"></i>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          {myVideos.map((i) => <VideoCard type={i.type} name={i.name} size={i.size} status={i.status} time={i.time} />)}
+          {myVideos.map((i) => <VideoCard type={i.type} name={i.name} size={i.size} status={i.status} time={i.time}/>)}
         </div>
 
       </div>

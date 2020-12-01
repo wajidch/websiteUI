@@ -53,9 +53,16 @@ export function ItemCard(props) {
         description: {
             fontSize: 0.8 + 'em',
             margin: 0,
+        },
+        linkStyle:{
+            display:'flex',
+            color:'black',
+            textDecoration:'none',
+            width:100+"%"
         }
     }
     return (
+        <Link to={props.to} style={{...style.linkStyle,...props.linkStyle}}>
         <div style={{ ...style.container, ...props.containerStyle }} className={props.containerClassName}>
             <div style={style.imgCon}>
                 <img src={props.src} style={style.img} />
@@ -66,6 +73,7 @@ export function ItemCard(props) {
                 <p style={style.description}>{props.description}</p>
             </div>
         </div>
+        </Link>
     );
 }
 
@@ -299,15 +307,14 @@ export function CategoryTextRow(props) {
 }
 
 export function SideDrawer(props) {
-    var body = document.body;
-    body.className = props.shown ? 'noOverflow' : '';
-
     let style = {
         container: {
             backgroundColor: '#000',
             flexDirection: 'column',
             padding: 40,
-            height: 100 + 'vh'
+            minHeight:100+"vh",
+            height: 100 + '%',
+            margin:0
         },
     }
     return (
