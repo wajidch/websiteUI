@@ -4,7 +4,6 @@ import { ItemCard, CaseCard, VideoCard, Nav, CategoryTextRow, SideDrawer } from 
 import image from '../img.jpg'
 
 function VideoScreen() {
-
   let recentVideos = [
     {
       src: image,
@@ -26,6 +25,31 @@ function VideoScreen() {
     },
   ]
 
+  // let recentVideos;
+  async function fetchvideos() {
+   await fetch("https://aws-dev.xcellence.tech/vr_api/redact/get_video_list", {
+      "method": "GET",
+     
+    })
+    .then(response => response.json())
+    .then(response => {
+      console.log("respomse",response)
+      recentVideos=response;
+   
+    })
+    .catch(err => { console.log(err); 
+    });
+  }
+
+  fetchvideos().then(data =>{
+console.log("data got",data);
+return (
+  <div className="App">
+    
+    </div>
+)
+
+  })
   let Cases = [
     {
       title: "ID 2002",
